@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ur-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voicebook — Bolo, likho nahi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="wordmark">Voicebook<span class="dot"></span></p>
+    <p class="tagline">Bolo — customer ka naam aur raqam khud-ba-khud likhi jayegi.</p>
+  </header>
+
+  <div class="composer">
+    <div class="mic-row">
+      <button class="mic-btn" id="micBtn" title="Bolo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </button>
+      <div class="mic-info">
+        <div class="mic-status" id="micStatus">Bolne ke liye button dabao</div>
+        <div class="mic-hint" id="micHint">misaal: "Ahmed advance 5000" ya "Bilal qarza 2000"</div>
+      </div>
+    </div>
+    <button class="manual-link" id="manualLink">...ya manually likho</button>
+  </div>
+
+  <div class="receipt-prompt" id="receiptPrompt" style="display:none;">
+    <div class="receipt-text">
+      <strong id="receiptLine1">Receipt taiyar hai</strong>
+      <span id="receiptLine2"></span>
+    </div>
+    <div class="receipt-actions">
+      <button class="btn-primary small" id="shareBtn">Bhejo</button>
+      <button class="btn-ghost small" id="dismissReceiptBtn">Band Karo</button>
+    </div>
+  </div>
+
+  <div class="review-card" id="reviewCard" style="display:none;">
+    <h3>Tasdeeq karo</h3>
+    <div class="field">
+      <label>Naam</label>
+      <input type="text" id="revName" placeholder="Customer ka naam">
+    </div>
+    <div class="field">
+      <label>Raqam (Rs)</label>
+      <input type="number" id="revAmount" placeholder="0" min="0">
+    </div>
+    <div class="field">
+      <label>Type</label>
+      <div class="seg">
+        <button type="button" class="seg-btn advance active" data-type="advance">Advance</button>
+        <button type="button" class="seg-btn qarza" data-type="qarza">Qarza</button>
+      </div>
+    </div>
+    <div class="review-actions">
+      <button class="btn-primary" id="saveBtn">Save Karo</button>
+      <button class="btn-secondary" id="redoBtn">Dobara Bolo</button>
+      <button class="btn-ghost" id="cancelBtn">Cancel</button>
+    </div>
+    <div class="hint" id="formHint"></div>
+  </div>
+
+  <div class="search-row">
+    <input type="text" id="searchInput" placeholder="Customer dhoondo...">
+  </div>
+
+  <div class="feed-head">
+    <h2>Customers</h2>
+    <span class="feed-count" id="feedCount"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table class="ledger-table">
+      <thead>
+        <tr>
+          <th>Naam</th>
+          <th>Advance</th>
+          <th>Qarza</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="customerTbody">
+        <tr class="empty-row"><td colspan="4">Abhi tak koi customer add nahi hua.<br>Mic dabao aur bolo!</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>Voicebook — is machine par local server par save hota hai. Wifi par doosre log bhi isi ko access kar sakte hain.</footer>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
